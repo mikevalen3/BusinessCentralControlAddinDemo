@@ -1,0 +1,40 @@
+#bcDiv 
+{
+    font-family: "Segoe UI Light", "Segoe WP Light", device-segoe-light, "Segoe WP Semilight", "Segoe UI", "Segoe WP", Segoe, Tahoma, Helvetica, Arial, sans-serif;
+    font-size: 10.5pt;
+}
+
+#bcDiv ul
+{
+    width:100%;
+    padding: 0;
+    margin: 0;
+}
+
+#bcDiv ul, #bcDiv ul li 
+{
+    display:inline-table;
+}
+
+#bcDiv ul li
+{   
+    height: 150px;
+    width: 115px;
+    background-color: rgb(0, 131, 143) !important;;
+    color: #fff;
+    margin:5px;
+    padding:3px;    
+}
+
+#bcDiv ul li h3, #bcDiv ul li p 
+{
+    padding: 0;
+    margin: 0;
+}
+
+#bcDiv ul li h3 
+{
+    font-weight: bold;
+    text-align: center;
+}
+
