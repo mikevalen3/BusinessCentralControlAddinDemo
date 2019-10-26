@@ -1,21 +1,17 @@
 let ControlAddIn = document.getElementById("controlAddIn");
-
 if (typeof(ControlAddIn) != undefined){
     let bcDiv = document.createElement("div");
     bcDiv.id = "bcDiv";
     bcDiv.className = "container";    
     ControlAddIn.appendChild(bcDiv);
-
     window.GetCustomerTopFive = function(salesHistory) {
         let itemSales = salesByItem(salesHistory);
         let documentSales = salesByDocument(salesHistory);
         let customerTopFiveItems = document.createElement("div");
         customerTopFiveItems.innerHTML += "<h2>Top Five Items Ordered</h2>";
-
         let customerTopFiveItemSalesList = document.createElement("ul");
         customerTopFiveItemSalesList.id = "customerTopFiveItemSalesList";
         customerTopFiveItemSalesList.className = "customerTopFiveItemsList";
-
         for (let index = 0; index < 5; index++) {
             const item = itemSales[index];
             let listItem = document.createElement("li");
@@ -29,15 +25,12 @@ if (typeof(ControlAddIn) != undefined){
             customerTopFiveItemSalesList.appendChild(listItem);   
         }
         customerTopFiveItems.appendChild(customerTopFiveItemSalesList);
-        bcDiv.appendChild(customerTopFiveItems);
-        
+        bcDiv.appendChild(customerTopFiveItems);        
         let customerTopFiveDocuments = document.createElement("div");
         customerTopFiveDocuments.innerHTML += "<h2>Top Five Orders</h2>";
-
         let customerTopFiveItemDocumentsList = document.createElement("ul");
         customerTopFiveItemDocumentsList.id = "customerTopFiveItemDocumentsList";
         customerTopFiveItemDocumentsList.className = "customerTopFiveItemsList";
-
         for (let index = 0; index < 5; index++) {
             const item = documentSales[index];
             let listItem = document.createElement("li");
@@ -52,10 +45,8 @@ if (typeof(ControlAddIn) != undefined){
         }
         customerTopFiveDocuments.appendChild(customerTopFiveItemDocumentsList);
         bcDiv.appendChild(customerTopFiveDocuments);
-
     }
 }
-
 function salesByItem(salesHistory){
     let customerSalesHistory = JSON.parse(salesHistory);
     let result = d3.nest()
@@ -70,7 +61,6 @@ function salesByItem(salesHistory){
         .sort(function(a, b){ return d3.descending(a.value.totalQuantity, b.value.totalQuantity); })
     return result;    
 }
-
 function salesByDocument(salesHistory){
     let customerSalesHistory = JSON.parse(salesHistory);
     let result = d3.nest()
@@ -84,8 +74,5 @@ function salesByDocument(salesHistory){
         .sort(function(a, b){ return d3.descending(a.value.totalAmount, b.value.totalAmount); });
     return result;  
 }
-
-
-
 
 Microsoft.Dynamics.NAV.InvokeExtensibilityMethod('ControlAddInReady', null);
